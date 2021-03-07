@@ -1,21 +1,18 @@
 # == Schema Information
 #
-# Table name: boards
+# Table name: comments
 #
 #  id         :integer          not null, primary key
-#  body       :text
+#  comment    :text
 #  name       :string
-#  title      :string
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
+#  board_id   :integer
 #
-
-one:
-  name: MyString
-  title: MyString
-  body: MyText
-
-two:
-  name: MyString
-  title: MyString
-  body: MyText
+# Indexes
+#
+#  index_comments_on_board_id  (board_id)
+#
+class Comment < ApplicationRecord
+  belongs_to :board
+end
